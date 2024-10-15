@@ -1,10 +1,12 @@
-import { type Image } from "@/app/lib/definitions";
+import { type Image as ImageType } from "@/app/lib/definitions";
+import Image from "next/image";
+
 
 export default function ImageGrid({
   images,
   handleClick,
 }: {
-  images: Image[];
+  images: ImageType[];
   handleClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }) {
   return (
@@ -16,9 +18,11 @@ export default function ImageGrid({
           onClick={handleClick}
           data-id={image.id}
         >
-          <img
+          <Image
             src={image.url}
             alt={image.title}
+            width={320}
+            height={384}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>

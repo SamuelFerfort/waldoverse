@@ -15,7 +15,7 @@ export type Character = {
 
 export type CharactersProps = {
   characters: Character[];
-  gameStartTime: number;
+  gameStartTime: React.MutableRefObject<number>;
   elapsedTime: number;
 };
 
