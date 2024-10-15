@@ -2,6 +2,7 @@ import prisma from "@/app/lib/prisma";
 import Game from "./game";
 import jwt from "jsonwebtoken"
 
+
 export default async function GamePage({ params }: { params: { id: string } }) {
   
   const data = await prisma.image.findUnique({
