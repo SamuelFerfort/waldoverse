@@ -2,26 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+body{
+  background: linear-gradient(to bottom right, #111827, #000000);
+
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.neon-text {
+  color: #f1f1f1;
+  text-shadow: 0 0 5px #bc13fe, 0 0 10px #bc13fe, 0 0 15px #bc13fe,
+    0 0 20px #bc13fe;
+}
+
+.neon-text-subtle {
+  color: #f1f1f1;
+  text-shadow: 0 0 5px #bc13fe, 0 0 10px #bc13fe;
+}
+
+.neon-border {
+  box-shadow: 0 0 5px #bc13fe, 0 0 10px #bc13fe;
+}
+
+.neon {
+  color: #bc13fe;
+}
+
+dialog[open] {
+  scale: 1;
+  transition: scale 0.3s ease;
+
+  @starting-style {
+    scale: 0;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.main {
+  height: minmax(calc(100vh - 56px), auto);
 }
