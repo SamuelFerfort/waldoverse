@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@prisma/client": "^5.20.0",
+    "@types/canvas-confetti": "^1.6.4",
+    "@types/jsonwebtoken": "^9.0.7",
     "canvas-confetti": "^1.9.3",
     "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.453.0",
