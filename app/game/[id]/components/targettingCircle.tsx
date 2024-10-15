@@ -1,12 +1,8 @@
 "use client";
 
 import { useState, useEffect, CSSProperties } from "react";
+import { type TargetingCircleProps } from "@/app/lib/definitions";
 
-type TargetingCircleProps = {
-  x: number;
-  y: number;
-  isVisible: boolean;
-};
 
 export default function TargettingCircle({
   x,

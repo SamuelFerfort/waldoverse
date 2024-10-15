@@ -1,18 +1,6 @@
 import { useEffect, useState } from "react";
 import { formatTime } from "@/app/lib/utils";
-
-type Character = {
-  id: string;
-  isFound: boolean;
-  name: string;
-  picture: string;
-};
-
-type CharactersProps = {
-  characters: Character[];
-  gameStartTime: number;
-  elapsedTime: number;
-};
+import { type CharactersProps } from "@/app/lib/definitions";
 
 export default function Characters({
   characters,
