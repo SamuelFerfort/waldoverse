@@ -17,7 +17,6 @@ import Image from "next/image";
 import { checkCoordinates } from "@/app/lib/actions";
 import { triggerConfetti } from "@/app/lib/utils";
 
-
 export default function Game({ data, token }: GameDataProps) {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [coordinates, setCoordinates] = useState<Coordinates>({ x: 0, y: 0 });
@@ -32,6 +31,10 @@ export default function Game({ data, token }: GameDataProps) {
   const gameStartTime = useRef(Date.now());
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [isPending, startTransition] = useTransition();
+
+
+  const blurDataURL = `${data.url.split('/upload/')[0]}/upload/w_10,e_blur:1000/${data.url.split('/upload/')[1]}`;
+
 
   useEffect(() => {
     let timer: ReturnType<typeof setInterval> | undefined;
@@ -118,12 +121,15 @@ export default function Game({ data, token }: GameDataProps) {
       />
       <section className="cursor-crosshair relative h-full w-full  ">
         <Image
-          className=" h-full w-full object-cover"
+          className="h-full w-full object-cover"
           src={data.url}
           alt={data.title}
           width={1920}
           height={data.title.includes("Universe") ? 2715 : 8086}
           onClick={handleClick}
+          priority
+          placeholder="blur"
+          blurDataURL={blurDataURL}
         />
         {charFoundMarkers.map((mark, index) => (
           <Checkmark key={index} x={mark.x} y={mark.y} />
