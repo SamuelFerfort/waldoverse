@@ -5,8 +5,6 @@ export const dynamic = "force-static";
 
 export default async function HomePage() {
   const images = await prisma.image.findMany();
-  
-
 
   return (
     <main className="container mx-auto p-7 pt-20 bg-">

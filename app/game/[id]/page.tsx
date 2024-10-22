@@ -1,10 +1,10 @@
 import prisma from "@/app/lib/prisma";
 import Game from "./game";
-import jwt from "jsonwebtoken"
-import { Suspense } from "react";
-import Loading from "./components/loading";
+import jwt from "jsonwebtoken";
 
-export default async function GamePage(props: { params: Promise<{ id: string }> }) {
+export default async function GamePage(props: {
+  params: Promise<{ id: string }>;
+}) {
   const params = await props.params;
 
   const data = await prisma.image.findUnique({
@@ -23,28 +23,19 @@ export default async function GamePage(props: { params: Promise<{ id: string }> 
     },
   });
 
-  if(!data) {
-    return <div>Image not found</div>
+
+  if (!data) {
+    return <div>Image not found</div>;
   }
 
-
   const sessionData = {
-   imageId: data.id,
-   startTime: Date.now(),
- };
+    imageId: data.id,
+    startTime: Date.now(),
+  };
 
   const token = jwt.sign(sessionData, process.env.JWT_SECRET!, {
-    expiresIn: "15m", 
+    expiresIn: "15m",
   });
 
-
-
-
-
-
-  return (
-    <Suspense fallback={<Loading />}>
-      <Game data={data} token={token} />
-    </Suspense>
-  );
+  return <Game data={data} token={token} />;
 }
