@@ -6,7 +6,6 @@ import jwt from 'jsonwebtoken';
 
 export async function submitScore(formData: FormData) {
 
-console.log(formData)
 
  const name = formData.get("name")?.toString();
  const tokenFromForm = formData.get("token")?.toString();

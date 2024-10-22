@@ -1,7 +1,8 @@
 import prisma from "@/app/lib/prisma";
 import Game from "./game";
 import jwt from "jsonwebtoken"
-
+import { Suspense } from "react";
+import Loading from "./components/loading";
 
 export default async function GamePage({ params }: { params: { id: string } }) {
   
@@ -40,5 +41,9 @@ export default async function GamePage({ params }: { params: { id: string } }) {
 
 
 
-  return <Game data={data} token={token} />;
+  return (
+    <Suspense fallback={<Loading />}>
+      <Game data={data} token={token} />
+    </Suspense>
+  );
 }
