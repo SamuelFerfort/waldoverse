@@ -4,8 +4,9 @@ import jwt from "jsonwebtoken"
 import { Suspense } from "react";
 import Loading from "./components/loading";
 
-export default async function GamePage({ params }: { params: { id: string } }) {
-  
+export default async function GamePage(props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
+
   const data = await prisma.image.findUnique({
     where: { id: params.id },
     select: {
@@ -25,18 +26,18 @@ export default async function GamePage({ params }: { params: { id: string } }) {
   if(!data) {
     return <div>Image not found</div>
   }
-  
 
-   const sessionData = {
-    imageId: data.id,
-    startTime: Date.now(),
-  };
+
+  const sessionData = {
+   imageId: data.id,
+   startTime: Date.now(),
+ };
 
   const token = jwt.sign(sessionData, process.env.JWT_SECRET!, {
     expiresIn: "15m", 
   });
 
- 
+
 
 
 

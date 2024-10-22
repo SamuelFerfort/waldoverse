@@ -3,7 +3,7 @@ import { RefObject } from "react";
 import { submitScore } from "@/app/lib/actions";
 
 interface WinDialogProps {
-  dialogRef: RefObject<HTMLDialogElement>;
+  dialogRef: RefObject<HTMLDialogElement | null>;
   token: string;
 }
 
