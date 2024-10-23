@@ -1,7 +1,7 @@
 import { useRouter } from "next/navigation";
 import { RefObject } from "react";
 import { submitScore } from "@/app/lib/actions";
-import { useState, useTransition } from "react";
+import { useTransition } from "react";
 
 interface WinDialogProps {
   dialogRef: RefObject<HTMLDialogElement | null>;
@@ -75,6 +75,7 @@ export default function WinDialog({
           </button>
           <button
             type="button"
+            disabled={isPending}
             onClick={() => router.push(`/leaderboard/?imageId=${imageId}`)}
             className="bg-gray-700 text-white px-6 py-3 rounded-full neon-border hover:bg-gray-600 transition-all duration-300 transform hover:scale-105"
           >
