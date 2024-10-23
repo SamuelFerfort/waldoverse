@@ -113,7 +113,7 @@ export default function Game({ data, token }: GameDataProps) {
   return (
     <main>
       <StyledToaster />
-      <WinDialog dialogRef={dialogRef} token={token} />
+      <WinDialog dialogRef={dialogRef} token={token}  imageId={data.id} />
       <Characters
         elapsedTime={elapsedTime}
         gameStartTime={gameStartTime}

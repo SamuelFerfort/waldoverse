@@ -5,9 +5,10 @@ import { submitScore } from "@/app/lib/actions";
 interface WinDialogProps {
   dialogRef: RefObject<HTMLDialogElement | null>;
   token: string;
+  imageId: string;
 }
 
-export default function WinDialog({ dialogRef, token }: WinDialogProps) {
+export default function WinDialog({ dialogRef, token, imageId }: WinDialogProps) {
   const router = useRouter();
 
   return (
@@ -32,6 +33,8 @@ export default function WinDialog({ dialogRef, token }: WinDialogProps) {
             type="text"
             id="name"
             name="name"
+            autoComplete="off"
+            placeholder="John Doe"
             required
             className="w-full p-3 rounded neon-border bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300"
           />
@@ -47,7 +50,7 @@ export default function WinDialog({ dialogRef, token }: WinDialogProps) {
           </button>
           <button
             type="button"
-            onClick={() => router.push("/leaderboard")}
+            onClick={() => router.push(`/leaderboard/?imageId=${imageId}`)}
             className="bg-gray-700 text-white px-6 py-3 rounded-full neon-border hover:bg-gray-600 transition-all duration-300 transform hover:scale-105"
           >
             Skip
