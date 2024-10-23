@@ -64,7 +64,12 @@ export default function WinDialog({
           <button
             disabled={isPending}
             type="submit"
-            className="bg-purple-600 text-white px-6 py-3 rounded-full neon-border hover:bg-purple-700 transition-all duration-300 transform hover:scale-105"
+            className={`bg-purple-600 text-white px-6 py-3 rounded-full neon-border transition-all duration-300 transform 
+              ${
+                isPending
+                  ? "bg-purple-400 cursor-not-allowed"
+                  : "hover:bg-purple-700 hover:scale-105"
+              }`}
           >
             {isPending ? "Submitting..." : "Submit"}
           </button>

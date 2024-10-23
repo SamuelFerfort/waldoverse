@@ -7,7 +7,7 @@ import jwt from "jsonwebtoken";
 export async function submitScore(formData: FormData) {
   const name = formData.get("name")?.toString();
   const tokenFromForm = formData.get("token")?.toString();
-
+  
   if (!name || !tokenFromForm) {
     throw new Error("Name and token are required.");
   }
