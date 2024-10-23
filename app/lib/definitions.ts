@@ -62,3 +62,9 @@ export type LeaderboardTableProps = {
   filteredLeaderboard: leaderboard[];
   title: string | undefined;
 };
+
+export type ImageGridProps = {
+  images: Image[];
+  handleClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  filter: string;
+};

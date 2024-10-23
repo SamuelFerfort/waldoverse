@@ -4,8 +4,7 @@ import { type LeaderboardTableProps } from "@/app/lib/definitions";
 
 export default function LeaderboardTable ({ filteredLeaderboard, title } : LeaderboardTableProps){
   
-  
-  
+
   
     if (!filteredLeaderboard || filteredLeaderboard.length === 0) {
     return (

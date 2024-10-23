@@ -1,6 +1,7 @@
 import { useRouter } from "next/navigation";
 import { RefObject } from "react";
 import { submitScore } from "@/app/lib/actions";
+import { useActionState } from "react";
 
 interface WinDialogProps {
   dialogRef: RefObject<HTMLDialogElement | null>;
@@ -10,6 +11,8 @@ interface WinDialogProps {
 
 export default function WinDialog({ dialogRef, token, imageId }: WinDialogProps) {
   const router = useRouter();
+
+    
 
   return (
     <dialog

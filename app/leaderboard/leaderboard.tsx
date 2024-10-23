@@ -1,12 +1,12 @@
 "use client";
 
-import { type LeaderboardProps } from "@/app/lib/definitions";
 import { useState } from "react";
-import LeaderboardTable from "./components/leaderboardTable";
-import ImageGrid from "./components/ImageGrid";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import LeaderboardTable from "./components/leaderboardTable";
+import { type LeaderboardProps } from "@/app/lib/definitions";
+import ImageGrid from "./components/imageGrid";
 
-export default function Leaderboard({ leaderboard, images }: LeaderboardProps) {
+export default function Leaderboard({ images, leaderboard }: LeaderboardProps) {
   const [imageFilter, setImageFilter] = useState<string | null>(null);
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -33,7 +33,7 @@ export default function Leaderboard({ leaderboard, images }: LeaderboardProps) {
 
   return (
     <main className="p-7 flex flex-col items-center gap-10 main">
-      <ImageGrid images={images} handleClick={handleClick} />
+     <ImageGrid images={images} handleClick={handleClick} filter={filter} />
       <LeaderboardTable
         filteredLeaderboard={filteredLeaderboard}
         title={title}

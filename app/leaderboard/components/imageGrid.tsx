@@ -1,20 +1,19 @@
-import { type Image as ImageType } from "@/app/lib/definitions";
 import Image from "next/image";
-
+import { type ImageGridProps } from "@/app/lib/definitions";
 
 export default function ImageGrid({
-  images,
   handleClick,
-}: {
-  images: ImageType[];
-  handleClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-}) {
+  images,
+  filter,
+}: ImageGridProps) {
   return (
     <section className="grid grid-cols-3 w-full max-w-2xl gap-8">
       {images.map((image) => (
         <button
           key={image.id}
-          className="w-full h-64 relative overflow-hidden rounded-lg shadow-lg transition-transform hover:scale-105 hover:contrast-75"
+          className={`w-full h-64 relative overflow-hidden rounded-lg shadow-lg transition-transform hover:scale-105 hover:contrast-75 ${
+            filter === image.id ? "scale-105 contrast-75" : ""
+          }`}
           onClick={handleClick}
           data-id={image.id}
         >
