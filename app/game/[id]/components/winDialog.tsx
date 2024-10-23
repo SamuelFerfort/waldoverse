@@ -1,7 +1,7 @@
 import { useRouter } from "next/navigation";
 import { RefObject } from "react";
 import { submitScore } from "@/app/lib/actions";
-import { useActionState } from "react";
+import { useState, useTransition } from "react";
 
 interface WinDialogProps {
   dialogRef: RefObject<HTMLDialogElement | null>;
@@ -9,10 +9,29 @@ interface WinDialogProps {
   imageId: string;
 }
 
-export default function WinDialog({ dialogRef, token, imageId }: WinDialogProps) {
+export default function WinDialog({
+  dialogRef,
+  token,
+  imageId,
+}: WinDialogProps) {
   const router = useRouter();
 
-    
+  const [isPending, startTransition] = useTransition();
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    startTransition(async () => {
+      const formData = new FormData(event.currentTarget);
+
+      try {
+        await submitScore(formData);
+        router.push(`/leaderboard/?imageId=${imageId}`);
+      } catch (error) {
+        console.error("Error submitting score:", error);
+      }
+    });
+  };
 
   return (
     <dialog
@@ -20,10 +39,7 @@ export default function WinDialog({ dialogRef, token, imageId }: WinDialogProps)
       className="p-8 rounded-lg bg-gradient-to-r from-purple-900 to-indigo-900 text-white neon-border"
       onClose={(e) => e.preventDefault()}
     >
-      <form
-        action={submitScore}
-        className="flex flex-col gap-8"
-      >
+      <form onSubmit={handleSubmit} className="flex flex-col gap-8">
         <h2 className="text-4xl font-bold text-center neon-text animate-pulse">
           Congratulations, you won!
         </h2>
@@ -46,10 +62,11 @@ export default function WinDialog({ dialogRef, token, imageId }: WinDialogProps)
 
         <div className="flex gap-4 justify-center">
           <button
+            disabled={isPending}
             type="submit"
             className="bg-purple-600 text-white px-6 py-3 rounded-full neon-border hover:bg-purple-700 transition-all duration-300 transform hover:scale-105"
           >
-            Submit Score
+            {isPending ? "Submitting..." : "Submit"}
           </button>
           <button
             type="button"
