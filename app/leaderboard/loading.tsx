@@ -13,5 +13,6 @@ export default function Loading() {
         </div>
         <p className="neon-text-subtle text-center mt-28 text-lg">Loading leaderboard</p>
       </div>
+      
     );
   }

@@ -23,7 +23,6 @@ export default async function GamePage(props: {
     },
   });
 
-
   if (!data) {
     return <div>Image not found</div>;
   }
