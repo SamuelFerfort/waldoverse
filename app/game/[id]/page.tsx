@@ -1,6 +1,7 @@
 import prisma from "@/app/lib/prisma";
 import Game from "./game";
 import jwt from "jsonwebtoken";
+import Link from "next/link";
 
 export default async function GamePage(props: {
   params: Promise<{ id: string }>;
@@ -24,7 +25,16 @@ export default async function GamePage(props: {
   });
 
   if (!data) {
-    return <div>Image not found</div>;
+    return (
+      <div className="flex justify flex-col items-center gap-4 center pt-24 ">
+        <h1 className="neon-text text-4xl">No image found</h1>
+        <Link href="/" className="ml-4">
+          <button className="bg-purple-600 text-lg text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition duration-300">
+            Go back home
+          </button>
+        </Link>
+      </div>
+    );
   }
 
   const sessionData = {

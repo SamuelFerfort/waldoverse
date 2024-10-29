@@ -29,6 +29,7 @@ describe("HomePage", () => {
     mockImages.forEach((image) => {
       expect(screen.getByText(image.title)).toBeInTheDocument();
     });
+  
   });
 
   it("handles empty image list", async () => {
