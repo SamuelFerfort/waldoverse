@@ -64,10 +64,6 @@ This project was developed to practice and showcase skills in modern web develop
    ```
 
 
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
-
 
 
 
