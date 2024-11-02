@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect, vi, Mock } from "vitest";
 import { render, screen } from "@testing-library/react";
 import HomePage from "../app/page";
 
@@ -29,7 +29,6 @@ describe("HomePage", () => {
     mockImages.forEach((image) => {
       expect(screen.getByText(image.title)).toBeInTheDocument();
     });
-  
   });
 
   it("handles empty image list", async () => {
