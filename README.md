@@ -1,11 +1,11 @@
 # Waldoverse
 
-## 🧐 About 
+## 🧐 About
 
 **Waldoverse** is an interactive web-based game where players search for popular game and anime characters hidden across various maps. It features a leaderboard to track high scores.
 
 <p align="center">
-  <img src="https://res.cloudinary.com/dy0av590l/image/upload/v1729658632/Screenshot_from_2024-10-23_06-41-11_lf378k.png" alt="Waldoverse Map Selection Screen" width="800"/>
+  <img src="https://res.cloudinary.com/dy0av590l/image/upload/v1738121641/196shots_so_1_pdy82k.png" alt="Waldoverse Map Selection Screen" width="800"/>
 </p>
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js Badge"/>
@@ -20,7 +20,6 @@
 ## 🎯 Goals
 
 This project was developed to practice and showcase skills in modern web development technologies. The core challenge was building a game where the coordinates of hidden characters are securely stored server-side, and player interactions (clicks) are validated via server actions.
-
 
 ## 🌟 Features
 
@@ -62,8 +61,3 @@ This project was developed to practice and showcase skills in modern web develop
    npm run dev
 
    ```
-
-
-
-
-
