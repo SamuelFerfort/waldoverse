@@ -1,8 +1,6 @@
 # Waldoverse
 
-## 🧐 About
-
-**Waldoverse** is an interactive web-based game where players search for popular game and anime characters hidden across various maps. It features a leaderboard to track high scores.
+An interactive web-based game where players search for popular game and anime characters hidden across various maps. It features a leaderboard to track high scores.
 
 <p align="center">
   <img src="https://res.cloudinary.com/dy0av590l/image/upload/v1738121641/196shots_so_1_pdy82k.png" alt="Waldoverse Map Selection Screen" width="800"/>
