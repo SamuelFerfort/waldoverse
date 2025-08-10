@@ -24,17 +24,17 @@ export default function Game({ data, token }: GameDataProps) {
     []
   );
   const [isGameOver, setIsGameOver] = useState<boolean>(false);
-  const [gameEndTime, setGameEndTime] = useState<number | null>(null);
+  const [_gameEndTime, setGameEndTime] = useState<number | null>(null);
   const [elapsedTime, setElapsedTime] = useState<number>(0);
 
   const [characters, setCharacters] = useState<Character[]>(data.characters);
   const gameStartTime = useRef(Date.now());
   const dialogRef = useRef<HTMLDialogElement>(null);
-  const [isPending, startTransition] = useTransition();
+  const [_isPending, startTransition] = useTransition();
 
-
-  const blurDataURL = `${data.url.split('/upload/')[0]}/upload/w_10,e_blur:1000/${data.url.split('/upload/')[1]}`;
-
+  const blurDataURL = `${
+    data.url.split("/upload/")[0]
+  }/upload/w_10,e_blur:1000/${data.url.split("/upload/")[1]}`;
 
   useEffect(() => {
     let timer: ReturnType<typeof setInterval> | undefined;
@@ -75,7 +75,7 @@ export default function Game({ data, token }: GameDataProps) {
         });
 
         if (result.isFound) {
-          result.foundCharacters?.forEach((charName) => {
+          result.foundCharacters?.forEach((charName: string) => {
             const alreadyFound = characters.find(
               (char) => char.name === charName && char.isFound
             );
@@ -113,7 +113,7 @@ export default function Game({ data, token }: GameDataProps) {
   return (
     <main>
       <StyledToaster />
-      <WinDialog dialogRef={dialogRef} token={token}  imageId={data.id} />
+      <WinDialog dialogRef={dialogRef} token={token} imageId={data.id} />
       <Characters
         elapsedTime={elapsedTime}
         gameStartTime={gameStartTime}

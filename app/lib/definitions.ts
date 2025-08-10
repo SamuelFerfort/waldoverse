@@ -1,5 +1,3 @@
-import Leaderboard from "../leaderboard/page";
-
 export type TargetingCircleProps = {
   x: number;
   y: number;
@@ -15,7 +13,7 @@ export type Character = {
 
 export type CharactersProps = {
   characters: Character[];
-  gameStartTime: React.MutableRefObject<number>;
+  gameStartTime: React.RefObject<number>;
   elapsedTime: number;
 };
 
